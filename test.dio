@@ -1,4 +1,4 @@
-<mxfile host="65bd71144e" modified="2020-10-20T02:52:01.611Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.50.0 Chrome/83.0.4103.122 Electron/9.2.1 Safari/537.36" etag="lL3myGDSLjhhR1KyI1in" version="13.6.5">
+<mxfile host="65bd71144e" modified="2020-10-20T06:11:35.608Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.50.0 Chrome/83.0.4103.122 Electron/9.2.1 Safari/537.36" etag="chhTNsLJz6JuD6-o9en6" version="13.6.5">
     <diagram id="mU3WlqO-pgrdF8bEOCiX" name="ページ1">
         <mxGraphModel dx="2221" dy="1724" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
@@ -85,7 +85,7 @@
                 <mxCell id="54" value="items" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
                     <mxGeometry x="-1180" y="80" width="150" height="210" as="geometry"/>
                 </mxCell>
-                <mxCell id="55" value="Image&#10;product&#10;description&#10;category&#10;status&#10;delivery_charge&#10;delivery_area&#10;delivery_days&#10;price&#10;user" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="54" vertex="1">
+                <mxCell id="55" value="Image&#10;product&#10;description&#10;category&#10;status&#10;delivery_charge&#10;prefectures_id&#10;delivery_days&#10;price&#10;user" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="54" vertex="1">
                     <mxGeometry y="30" width="150" height="180" as="geometry"/>
                 </mxCell>
                 <mxCell id="80" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;exitX=1.019;exitY=0.4;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="53" edge="1">
@@ -137,10 +137,10 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="91" value="user" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                <mxCell id="91" value="user" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
                     <mxGeometry x="-1530" y="440" width="40" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="92" value="item" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                <mxCell id="92" value="item" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
                     <mxGeometry x="-1530" y="460" width="40" height="20" as="geometry"/>
                 </mxCell>
             </root>
