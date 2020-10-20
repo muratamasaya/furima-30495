@@ -31,7 +31,7 @@
 | delivery_charge_id | integer    |  null: false       |
 | delivery_area_id   | integer    |  null: false       |
 | delivery_days_id   | integer    |  null: false       |
-| price              | string     |  null: false       |
+| price              | integer    |  null: false       |
 | user               | references |  foreign_key: true |
 
 ### Association
