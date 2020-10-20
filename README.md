@@ -22,17 +22,17 @@
 
 ## items
 
-| Column           | Type    | Options      |
-| ---------------- | ------- | ------------ |
-| product          | string  |  null: false |
-| description      | text    |  null: false |
-| category         | string  |  null: false |
-| status           | string  |  null: false |
-| delivery_charge  | string  |  null: false |
-| delivery_area    | string  |  null: false |
-| delivery_days    | string  |  null: false |
-| price            | string  |  null: false |
-| user             | references             |
+| Column             | Type    | Options      |
+| ------------------ | ------- | ------------ |
+| product            | string  |  null: false |
+| description        | text    |  null: false |
+| category_id        | integer |  null: false |
+| status_id          | integer |  null: false |
+| delivery_charge_id | integer |  null: false |
+| delivery_area_id   | integer |  null: false |
+| delivery_days_id   | integer |  null: false |
+| price              | string  |  null: false |
+| user               | references             |
 
 ### Association
 
@@ -59,13 +59,11 @@
 | Column           | Type    | Options      |
 | ---------------- | ------- | ------------ |
 | post_code        | string  |  null: false |
-| prefectures      | string  |  null: false |
+| prefectures_id   | integer |  null: false |
 | city             | string  |  null: false |
-| address1         | string  |  null: false |
-| address2         | string  |  null: false |
+| address          | string  |  null: false |
 | building_name    | string  |  null: false |
 | phone_number     | string  |  null: false |
-| user             | references             |
 | purchase         | references             |
 
 ### Association
@@ -88,6 +86,7 @@
 
 
 ## active_hash
+  category
   delivery_charge
   delivery_area
   delivery_days
