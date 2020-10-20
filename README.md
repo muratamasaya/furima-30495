@@ -1,24 +1,97 @@
-# README
+#テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users
 
-Things you may want to cover:
+| Column           | Type    | Options      |
+| ---------------- | ------- | ------------ |
+| nick_name        | string  |  null: false |
+| email            | string  |  null: false |
+| password         | string  |  null: false |
+| family_name      | string  |  null: false |
+| first_name       | string  |  null: false |
+| family_name_kana | string  |  null: false |
+| first_name _kana | string  |  null: false |
+| birth_day        | date    |  null: false |
 
-* Ruby version
 
-* System dependencies
+### Association
 
-* Configuration
+- has_many :items
+- has_many :comments
+- has_many :purchases
 
-* Database creation
+## items
 
-* Database initialization
+| Column             | Type       | Options            |
+| ------------------ | ---------- | ------------------ |
+| product            | string     |  null: false       |
+| description        | text       |  null: false       |
+| category_id        | integer    |  null: false       |
+| status_id          | integer    |  null: false       |
+| delivery_charge_id | integer    |  null: false       |
+| prefecture_id      | integer    |  null: false       |
+| delivery_day_id    | integer    |  null: false       |
+| price              | integer    |  null: false       |
+| user               | references |  foreign_key: true |
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- belongs_to :user
+- has_one :purchase
+- has_many :comments
 
-* Deployment instructions
 
-* ...
+## purchases
+
+| Column           | Type       | Options           |
+| ---------------- | ---------- | ----------------- |
+| user             | references | foreign_key: true |
+| item             | references | foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :item
+- has_one :delivery_address
+
+## delivery_addresses
+
+| Column           | Type          | Options            |
+| ---------------- | ------------- | ------------------ |
+| post_code        | string        |  null: false       |
+| prefecture_id    | integer       |  null: false       |
+| city             | string        |  null: false       |
+| address          | string        |  null: false       |
+| building_name    | string        |                    |
+| phone_number     | string        |  null: false       |
+| purchase         | references    |  foreign_key: true |
+
+### Association
+
+- belongs_to :purchase
+
+## comments
+
+| Column           | Type       | Options           |
+| ---------------- | ---------- | ----------------- |
+| comment          | text       | null: false       |
+| user             | references | foreign_key: true |
+| item             | references | foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :item
+
+
+## active_hash
+  category
+  delivery_charge
+  delivery_area
+  delivery_days
+  prefectures
+
+  ### Association
+
+  - has_many :items
+  - has_many :delivery_addresses
