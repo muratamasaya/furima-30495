@@ -22,31 +22,31 @@
 
 ## items
 
-| Column             | Type    | Options      |
-| ------------------ | ------- | ------------ |
-| product            | string  |  null: false |
-| description        | text    |  null: false |
-| category_id        | integer |  null: false |
-| status_id          | integer |  null: false |
-| delivery_charge_id | integer |  null: false |
-| delivery_area_id   | integer |  null: false |
-| delivery_days_id   | integer |  null: false |
-| price              | string  |  null: false |
-| user               | references             |
+| Column             | Type       | Options            |
+| ------------------ | ---------- | ------------------ |
+| product            | string     |  null: false       |
+| description        | text       |  null: false       |
+| category_id        | integer    |  null: false       |
+| status_id          | integer    |  null: false       |
+| delivery_charge_id | integer    |  null: false       |
+| delivery_area_id   | integer    |  null: false       |
+| delivery_days_id   | integer    |  null: false       |
+| price              | string     |  null: false       |
+| user               | references |  foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - has_one :purchase
 - has_many :comments
-- belongs_to :active_hash
+
 
 ## purchases
 
-| Column           | Type    | Options      |
-| ---------------- | ------- | ------------ |
-| user             | references             |
-| item             | references             |
+| Column           | Type       | Options           |
+| ---------------- | ---------- | ----------------- |
+| user             | references | foreign_key: true |
+| item             | references | foreign_key: true |
 
 ### Association
 
@@ -56,28 +56,27 @@
 
 ## delivery_addresses
 
-| Column           | Type    | Options      |
-| ---------------- | ------- | ------------ |
-| post_code        | string  |  null: false |
-| prefectures_id   | integer |  null: false |
-| city             | string  |  null: false |
-| address          | string  |  null: false |
-| building_name    | string  |              |
-| phone_number     | string  |  null: false |
-| purchase         | references             |
+| Column           | Type          | Options            |
+| ---------------- | ------------- | ------------------ |
+| post_code        | string        |  null: false       |
+| prefectures_id   | integer       |  null: false       |
+| city             | string        |  null: false       |
+| address          | string        |  null: false       |
+| building_name    | string        |  foreign_key: true |
+| phone_number     | string        |  null: false       |
+| purchase         | references    |  foreign_key: true |
 
 ### Association
 
 - belongs_to :purchase
-- belongs_to :active_hash
 
 ## comments
 
-| Column           | Type    | Options      |
-| ---------------- | ------- | ------------ |
-| comment          | text    | null: false  |
-| user             | references             |
-| item             | references             |
+| Column           | Type       | Options           |
+| ---------------- | ---------- | ----------------- |
+| comment          | text       | null: false       |
+| user             | references | foreign_key: true |
+| item             | references | foreign_key: true |
 
 ### Association
 
