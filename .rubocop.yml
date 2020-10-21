@@ -1,3 +1,4 @@
+AllCops:
 # 除外するディレクトリ（自動生成されたファイル）
 # デフォルト設定にある"vendor/**/*"が無効化されないように記述
  Exclude:
@@ -23,6 +24,7 @@ Layout/LineLength:
 Metrics/BlockLength:
  Exclude:
    - "spec/**/*"
+
 # Assignment: 変数への代入
 # Branch: メソッド呼び出し
 # Condition: 条件文
