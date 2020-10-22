@@ -4,10 +4,13 @@ class User < ApplicationRecord
 
   with_options presence: true do
   validates :nick_name
-  validates :family_name
-  validates :first_name
   validates :birth_day
 
+  with_options format: { with: /\A[ぁ-んァ-ン一-龥]+\z/, message: '全角の漢字、平仮名、カタカナを使用してください' } do
+  validates :family_name
+  validates :first_name
+  end
+  
   with_options format: { with: /\A[ァ-ン一]+\z/ } do
   validates :family_name_kana
   validates :first_name_kana
