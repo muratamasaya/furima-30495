@@ -10,7 +10,7 @@
 | family_name      | string  |  null: false |
 | first_name       | string  |  null: false |
 | family_name_kana | string  |  null: false |
-| first_name _kana | string  |  null: false |
+| first_name_kana  | string  |  null: false |
 | birth_day        | date    |  null: false |
 
 
