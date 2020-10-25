@@ -32,25 +32,50 @@ describe Item do
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank", "Category is not a number")
       end
+      it 'カテゴリーが--を選択されていると登録ができない' do
+        @item.category_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category must be other than 1")
+      end
       it '商品の状態が選択されてないと登録ができない' do
         @item.status_id = ""
         @item.valid?
         expect(@item.errors.full_messages).to include("Status can't be blank", "Status is not a number")
+      end
+      it '商品の状態がが--を選択されていると登録ができない' do
+        @item.status_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Status must be other than 1")
       end
       it '配送料の負担が選択されてないと登録ができない' do
         @item.delivery_charge_id = ""
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery charge can't be blank", "Delivery charge is not a number")
       end
+      it '配送料の負担が--を選択されていると登録ができない' do
+        @item.delivery_charge_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Delivery charge must be other than 1")
+      end
       it '配送元の地域が選択されてないと登録ができない' do
         @item.prefecture_id = ""
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank", "Prefecture is not a number")
       end
+      it '配送元の地域が--を選択されていると登録ができない' do
+        @item.prefecture_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
+      end
       it '発送までの日数が選択されてないと登録ができない' do
         @item.delivery_day_id = ""
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery day can't be blank", "Delivery day is not a number")
+      end
+      it '配送までの日数が--を選択されていると登録ができない' do
+        @item.delivery_day_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Delivery day must be other than 1")
       end
       it '販売価格が空だと登録ができない' do
         @item.price = ""
@@ -58,12 +83,12 @@ describe Item do
         expect(@item.errors.full_messages).to include("Price can't be blank")
       end
       it '販売価格が３００円未満だと登録ができない' do
-        @item.price = "299"
+        @item.price = 299
         @item.valid?
         expect(@item.errors.full_messages).to include("Price 半角数字で¥300〜9,999,999円で入力してください")
       end
       it '販売価格が10,000,000円以上だと登録ができない' do
-        @item.price = "10000000"
+        @item.price = 10000000
         @item.valid?
         expect(@item.errors.full_messages).to include("Price 半角数字で¥300〜9,999,999円で入力してください")
       end
