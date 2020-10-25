@@ -81,22 +81,22 @@ describe User do
       it 'お名前（family_name）が英字だと登録ができない' do
         @user.family_name = 'JON'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name 全角の漢字、平仮名、カタカナを使用してください")
+        expect(@user.errors.full_messages).to include('Family name 全角の漢字、平仮名、カタカナを使用してください')
       end
       it 'お名前（first_name）が英字だと登録ができない' do
         @user.first_name = 'JON'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name 全角の漢字、平仮名、カタカナを使用してください")
+        expect(@user.errors.full_messages).to include('First name 全角の漢字、平仮名、カタカナを使用してください')
       end
       it 'お名前（family_name）が半角だと登録ができない' do
         @user.family_name = 'ﾔﾏﾀﾞ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name 全角の漢字、平仮名、カタカナを使用してください")
+        expect(@user.errors.full_messages).to include('Family name 全角の漢字、平仮名、カタカナを使用してください')
       end
       it 'お名前（first_name）が半角だと登録ができない' do
         @user.first_name = 'ﾀﾛｳﾞ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name 全角の漢字、平仮名、カタカナを使用してください")
+        expect(@user.errors.full_messages).to include('First name 全角の漢字、平仮名、カタカナを使用してください')
       end
       it 'お名前（family_name_kana）が空だと登録ができない' do
         @user.family_name_kana = ''
