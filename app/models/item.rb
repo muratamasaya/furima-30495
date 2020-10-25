@@ -9,6 +9,7 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   with_options presence: true do
+    validates :image
     validates :product
     validates :description
     validates :category_id, numericality: { other_than: 1 }
@@ -16,7 +17,7 @@ class Item < ApplicationRecord
     validates :delivery_charge_id, numericality: { other_than: 1 }
     validates :prefecture_id, numericality: { other_than: 1 }
     validates :delivery_day_id, numericality: { other_than: 1 }
-    validates :price, format: { with: /\A[0-9]+\z/, message: '半角数字で入力してください'}
-    validates :price, numericality: {greater_than_or_equal_to: 300,less_than: 9999999, message: '¥300〜9,999,999円で入力してください'}
+    validates :price, format: { with: /\A[0-9]+\z/ }
+    validates :price, numericality: {greater_than_or_equal_to: 300,less_than: 9999999, message: '半角数字で¥300〜9,999,999円で入力してください'}
   end
 end
