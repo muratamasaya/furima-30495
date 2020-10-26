@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @items = Item.all.order('created_at DESC')
@@ -11,11 +11,16 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @items = @item.includes(:user)
     if @item.save
       redirect_to root_path
     else
       render :new
     end
+  end
+
+  def show
+    @item = Item.find(params[:id])
   end
 
   private
