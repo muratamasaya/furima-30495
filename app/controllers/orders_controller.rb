@@ -1,16 +1,14 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:index]
+  before_action :locate, only: [:index, :create]
   before_action :seller, only: [:index]
   before_action :sold, only: [:index]
-  before_action :locate, only: [:index, :create]
 
   def index
     @order_item = OrderItem.new
-    locate
   end
 
   def create
-    locate
     @order_item = OrderItem.new(order_params)
     if @order_item.valid?
       pay_item
@@ -37,12 +35,10 @@ class OrdersController < ApplicationController
   end
 
   def seller
-    @item = Item.find(params[:item_id])
     redirect_to root_path if current_user.id == @item.user.id
   end
 
   def sold
-    @item = Item.find(params[:item_id])
     redirect_to root_path if @item.order.present?
   end
 
