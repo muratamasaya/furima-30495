@@ -6,5 +6,4 @@ class Order < ApplicationRecord
   belongs_to_active_hash :delivery_charge
   has_one :delivery_address
   has_one_attached :image
-  
 end
